@@ -34,11 +34,12 @@ int last(const list* myList) {
 	return iter->val;
 }
 
-// Retrun apointer to the element at place 'p'
+// Retrun a pointer to the element at place 'p'
 node* retrive(const list* myList, int p) {
 	if (myList->head == NULL)
 		return NULL;
 	node* iter;
+	iter = myList->head;
 	for (int i = 0; i < p; i++) {
 		if (iter->next == NULL)
 			return NULL;
@@ -85,7 +86,7 @@ node* createNode(int val) {
 void insert(int x, int p, list* myList) {
 	node* newNode = createNode(x);
 	node* temp = myList->head;
-	node* prev;
+	node* prev=temp;
 	for (int i = 0; i < p; i++) {
 		prev = temp;
 		temp = temp->next;
@@ -98,7 +99,7 @@ void insert(int x, int p, list* myList) {
 
 void deleteNode(list* myList,int x) {
 	node* iter = myList->head;
-	node* prev;
+	node* prev=iter;
 	node* temp;
 	while (iter->next != NULL) {
 		// Item has found
@@ -511,10 +512,10 @@ hashMap* initialHash(int size) {
 }
 
 //return the relevant index at the hash map, can be recived more relevant parameters
-int hashFunc(int key) {
+/*int hashFunc(int key) {
 	printf("This is a reminder - the hash function isn't defined yet.\n");
 	printf("You need to go in to the file and edit it as you wish.\n");
 	return 0;
-}
+}*/
 
 
